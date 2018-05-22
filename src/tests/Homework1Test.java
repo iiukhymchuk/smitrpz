@@ -11,7 +11,7 @@ public class Homework1Test {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void getLessThanAverageTrowsIllegalArgumentException() {
+    public void getLessThanAverageThrowsIllegalArgumentException() {
         exception.expect(IllegalArgumentException.class);
         Utils.getLessThanAverage(null);
     }
