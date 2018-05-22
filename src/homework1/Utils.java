@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Utils {
     public static String[] getLessThanAverage(String[] strings) {
         if (strings == null) {
-            return null;
+            throw new IllegalArgumentException("Argument 'strings' must not be null.");
         }
         if (strings.length == 0) {
             return strings;
@@ -25,7 +25,7 @@ public class Utils {
     }
 
     private static String[] getLessThanAverage(String[] strings, double average) {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         for (String str: strings) {
             if (str.length() < average) {
                 list.add(str);
