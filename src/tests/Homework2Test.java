@@ -33,10 +33,17 @@ public class Homework2Test {
         Assert.assertEquals(expected, actual);
     }
 
-    @Test(timeout = 2000)
+    @Test
     public void getMaxBinaryOnesReturnsProperPrimeForIntegerMaxValueArgument() {
-        int expected = 1073479679;
+        int expected = Integer.MAX_VALUE;
         int actual = PrimeUtils.getMaxBinaryOnes(Integer.MAX_VALUE);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getMaxBinaryOnesReturnsProperPrimeForIntegerMaxValueMinusOneArgument() {
+        int expected = 1073479679;
+        int actual = PrimeUtils.getMaxBinaryOnes(Integer.MAX_VALUE - 1);
         Assert.assertEquals(expected, actual);
     }
 }

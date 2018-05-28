@@ -8,10 +8,14 @@ public class PrimeUtils {
             throw new IllegalArgumentException("Argument 'maxNumber' must be more than 1.");
         }
 
+        if (maxNumber == Integer.MAX_VALUE) {
+            return Integer.MAX_VALUE;
+        }
+
         int maxCount = -1;
         int count;
         int resultValue = minPrimeNumber;
-        for (int i = minPrimeNumber; i < maxNumber; i++) {
+        for (int i = minPrimeNumber; i <= maxNumber; i++) {
             count = Integer.bitCount(i);
             if (count <= maxCount) {
                 continue;
