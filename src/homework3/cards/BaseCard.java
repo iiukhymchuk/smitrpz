@@ -31,10 +31,18 @@ public abstract class BaseCard implements SkiPassCard {
     }
 
     @Override
-    public LocalDateTime getValidityPeriod() {
+    public LocalDateTime getStartDate() {
+        return startDate;
+    }
+
+    @Override
+    public LocalDateTime getEndDate() {
         return endDate;
     }
 
     @Override
-    public abstract String getLeftLiftsNumber(LocalDateTime date);
+    public abstract String getLeftLiftsNumber();
+
+    @Override
+    public abstract void decreaseLiftsNumber();
 }

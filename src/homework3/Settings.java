@@ -2,6 +2,7 @@ package homework3;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,6 +18,15 @@ public class Settings {
     );
     private static final List<Duration> VALID_WORKING_DAYS_TIME_PERIODS = Arrays.asList(
         Duration.ofHours(4),Duration.ofDays(1L), Duration.ofDays(2L), Duration.ofDays(5L)
+    );
+    private static final List<LocalTime> VALID_TIMES_FOR_START_DATE = Arrays.asList(
+            LocalTime.of(9, 0, 0),
+            LocalTime.of(13, 0, 0)
+    );
+
+    private static final List<LocalTime> VALID_TIMES_FOR_END_DATE = Arrays.asList(
+            LocalTime.of(13, 0, 0),
+            LocalTime.of(17, 0, 0)
     );
 
     // getters
@@ -41,4 +51,11 @@ public class Settings {
     }
 
 
+    public static List<LocalTime> getValidTimesForStartDate() {
+        return VALID_TIMES_FOR_START_DATE;
+    }
+
+    public static List<LocalTime> getValidTimesForEndDate() {
+        return VALID_TIMES_FOR_END_DATE;
+    }
 }

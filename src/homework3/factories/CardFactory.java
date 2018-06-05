@@ -13,7 +13,7 @@ import java.util.UUID;
 
 import static java.util.Map.entry;
 
-class CardFactory {
+public class CardFactory {
     private static final int NO_NUMBER_OF_LIFTS = -1;
 
     private static final SkiPassCardFactory seasonFactory = new SeasonCardFactory();

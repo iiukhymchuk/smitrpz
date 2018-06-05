@@ -8,6 +8,8 @@ import java.util.UUID;
 public interface SkiPassCard {
     UUID getId();
     CardType getType();
-    LocalDateTime getValidityPeriod();
-    String getLeftLiftsNumber(LocalDateTime date);
+    LocalDateTime getStartDate();
+    LocalDateTime getEndDate();
+    String getLeftLiftsNumber();
+    void decreaseLiftsNumber();
 }
