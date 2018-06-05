@@ -6,6 +6,7 @@ import homework3.entities.CardOptions;
 import homework3.interfaces.SkiPassCard;
 import homework3.interfaces.SkiPassCardFactory;
 import homework3.interfaces.SkiPassCardOptionsBuilder;
+import homework3.interfaces.SkiPassTimeProvider;
 
 import java.time.LocalDateTime;
 
@@ -27,7 +28,7 @@ public class SeasonCardFactory implements SkiPassCardFactory {
     }
 
     @Override
-    public SkiPassCard create(CardOptions options) {
-        return new UnlimitedLiftsCard(options);
+    public SkiPassCard create(CardOptions options, SkiPassTimeProvider timeProvider) {
+        return new UnlimitedLiftsCard(options, timeProvider);
     }
 }

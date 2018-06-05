@@ -46,7 +46,7 @@ public class CardOptions {
         return new Builder();
     }
 
-    public static class Builder implements SkiPassCardOptionsBuilder {
+    static class Builder implements SkiPassCardOptionsBuilder {
         private boolean alreadyBuilt = false;
 
         private UUID id;

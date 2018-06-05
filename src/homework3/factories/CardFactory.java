@@ -1,5 +1,6 @@
 package homework3.factories;
 
+import homework3.TimeProvider;
 import homework3.entities.CardOptions;
 import homework3.enums.CardType;
 import homework3.interfaces.SkiPassCard;
@@ -47,7 +48,7 @@ public class CardFactory {
         if (!concreteFactory.isValid(options)) {
             throw new IllegalStateException("Illegal state of parameters: 'cardType','id', 'startDate', 'endDate', 'liftsNumber'.");
         }
-        return concreteFactory.create(options);
+        return concreteFactory.create(options, TimeProvider.getProvider());
     }
 
     public static SkiPassCard create(CardType cardType, UUID id) {

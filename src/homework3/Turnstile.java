@@ -11,15 +11,22 @@ import java.util.Map;
 import java.util.UUID;
 
 public class Turnstile {
-    private static final SkiPassTimeProvider timeProvider = TimeProvider.getProvider();
+    private static SkiPassTimeProvider timeProvider;
     private static final HashMap<CardType, TurnstileSuccessRate> statistics = new HashMap<>();
+
+    public Turnstile(SkiPassTimeProvider timeProvider) {
+        this.timeProvider = timeProvider;
+    }
 
     public boolean pass(SkiPassCard card) {
         if (!isValid(card)) {
+
+            addNonSuccess(card.getType());
             return false;
         }
 
         card.decreaseLiftsNumber();
+        addSuccess(card.getType());
         return true;
     }
 

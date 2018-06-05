@@ -6,6 +6,7 @@ import homework3.cards.LimitedLiftsCard;
 import homework3.interfaces.SkiPassCard;
 import homework3.interfaces.SkiPassCardFactory;
 import homework3.interfaces.SkiPassCardOptionsBuilder;
+import homework3.interfaces.SkiPassTimeProvider;
 
 public class LimitedLiftsCardFactory implements SkiPassCardFactory {
     @Override
@@ -22,7 +23,7 @@ public class LimitedLiftsCardFactory implements SkiPassCardFactory {
     }
 
     @Override
-    public SkiPassCard create(CardOptions options) {
-        return new LimitedLiftsCard(options);
+    public SkiPassCard create(CardOptions options, SkiPassTimeProvider timeProvider) {
+        return new LimitedLiftsCard(options, timeProvider);
     }
 }
