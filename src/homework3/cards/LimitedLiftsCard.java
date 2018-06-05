@@ -3,7 +3,7 @@ package homework3.cards;
 import homework3.entities.LiftsNumber;
 import homework3.entities.CardOptions;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class LimitedLiftsCard extends BaseCard {
 
@@ -15,8 +15,8 @@ public class LimitedLiftsCard extends BaseCard {
     }
 
     @Override
-    public String getLeftLiftsNumber(Date date) {
-        if (date.after(startDate) && date.before(endDate)) {
+    public String getLeftLiftsNumber(LocalDateTime date) {
+        if (date.isAfter(startDate) && date.isBefore(endDate)) {
             return liftsNumber.toString();
         }
         return "No lifts";

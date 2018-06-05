@@ -1,19 +1,19 @@
 package homework3.factories;
 
-import homework3.SkiPassSettings;
+import homework3.Settings;
 import homework3.cards.UnlimitedLiftsCard;
 import homework3.entities.CardOptions;
 import homework3.interfaces.SkiPassCard;
 import homework3.interfaces.SkiPassCardFactory;
 import homework3.interfaces.SkiPassCardOptionsBuilder;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class SeasonCardFactory implements SkiPassCardFactory {
     @Override
     public CardOptions createOptions(SkiPassCardOptionsBuilder optionsBuilder) {
-        Date startDate = SkiPassSettings.getSeasonStartDate();
-        Date endDate = SkiPassSettings.getSeasonEndDate();
+        LocalDateTime startDate = Settings.getSeasonStartDate();
+        LocalDateTime endDate = Settings.getSeasonEndDate();
 
         return optionsBuilder
             .setStartDate(startDate)

@@ -3,17 +3,17 @@ package homework3.entities;
 import homework3.enums.CardType;
 import homework3.interfaces.SkiPassCardOptionsBuilder;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class CardOptions {
     private final UUID id;
-    private final Date startDate;
-    private final Date endDate;
+    private final LocalDateTime startDate;
+    private final LocalDateTime endDate;
     private final CardType type;
     private final int liftsNumber;
 
-    private CardOptions(UUID id, Date startDate, Date endDate, CardType type, int liftsNumber) {
+    private CardOptions(UUID id, LocalDateTime startDate, LocalDateTime endDate, CardType type, int liftsNumber) {
 
         this.id = id;
         this.startDate = startDate;
@@ -26,11 +26,11 @@ public class CardOptions {
         return id;
     }
 
-    public Date getStartDate() {
+    public LocalDateTime getStartDate() {
         return startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDateTime getEndDate() {
         return endDate;
     }
 
@@ -50,8 +50,8 @@ public class CardOptions {
         private boolean alreadyBuilt = false;
 
         private UUID id;
-        private Date startDate;
-        private Date endDate;
+        private LocalDateTime startDate;
+        private LocalDateTime endDate;
         private CardType type;
         private int liftsNumber;
 
@@ -62,12 +62,12 @@ public class CardOptions {
             return this;
         }
 
-        public Builder setStartDate(Date startDate) {
+        public Builder setStartDate(LocalDateTime startDate) {
             this.startDate = startDate;
             return this;
         }
 
-        public Builder setEndDate(Date endDate) {
+        public Builder setEndDate(LocalDateTime endDate) {
             this.endDate = endDate;
             return this;
         }

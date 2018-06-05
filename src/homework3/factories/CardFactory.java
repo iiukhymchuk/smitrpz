@@ -6,7 +6,7 @@ import homework3.interfaces.SkiPassCard;
 import homework3.interfaces.SkiPassCardFactory;
 import homework3.interfaces.SkiPassCardOptionsBuilder;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -29,7 +29,7 @@ class CardFactory {
         entry(CardType.WEEKEND_UNLIMITED_LIFTS, weekendUnlimitedLiftsFactory)
     ));
 
-    public static SkiPassCard create(CardType cardType, UUID id, Date startDate, Date endDate, int liftsNumber) {
+    public static SkiPassCard create(CardType cardType, UUID id, LocalDateTime startDate, LocalDateTime endDate, int liftsNumber) {
 
         SkiPassCardFactory concreteFactory = concreteFactories.getOrDefault(cardType, null);
         if (concreteFactory == null) {
@@ -54,7 +54,7 @@ class CardFactory {
         return create(cardType, id, null, null, NO_NUMBER_OF_LIFTS);
     }
 
-    public static SkiPassCard create(CardType cardType, UUID id, Date startDate, Date endDate) {
+    public static SkiPassCard create(CardType cardType, UUID id, LocalDateTime startDate, LocalDateTime endDate) {
         return create(cardType, id, startDate, endDate, NO_NUMBER_OF_LIFTS);
     }
 }

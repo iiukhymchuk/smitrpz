@@ -8,11 +8,14 @@ import homework3.interfaces.SkiPassCardOptionsBuilder;
 public class WeekendUnlimitedLiftsCardFactory implements SkiPassCardFactory {
     @Override
     public CardOptions createOptions(SkiPassCardOptionsBuilder optionsBuilder) {
-        return null;
+        return optionsBuilder
+            .setLiftsNumber(-1) // no number of lifts
+            .build();
     }
 
     @Override
     public boolean isValid(CardOptions options) {
+        boolean idIsNotNull = options.getId() != null;
         return false;
     }
 
