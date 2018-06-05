@@ -1,4 +1,4 @@
-package tests;
+package tests.homework2;
 
 import homework2.PrimeUtils;
 import junit.framework.Assert;

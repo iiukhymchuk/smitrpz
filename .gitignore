@@ -26,7 +26,7 @@ tomcat
 target/
 
 # IntelliJ project files 
-*.iml
+#*.iml
 *.iws
 *.ipr
 .idea/

@@ -1,4 +1,4 @@
-package tests;
+package tests.homework1;
 
 import homework1.Utils;
 import org.junit.Assert;

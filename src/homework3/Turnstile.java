@@ -20,7 +20,6 @@ public class Turnstile {
 
     public boolean pass(SkiPassCard card) {
         if (!isValid(card)) {
-
             addNonSuccess(card.getType());
             return false;
         }
