@@ -7,9 +7,7 @@ import homework3.enums.CardType;
 import homework3.interfaces.SkiPassCard;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
@@ -39,8 +37,8 @@ public class TurnstileTest {
         this.endDate = endDate;
         this.currentDate = currentDate;
         this.cardType = cardType;
-        this.expectedResult = expectedResult;
         this.liftsLeft = liftsLeft;
+        this.expectedResult = expectedResult;
     }
 
     @Before
@@ -52,42 +50,48 @@ public class TurnstileTest {
     public static Collection input() {
         return Arrays.asList(new Object[][] {
             {
+                LocalDateTime.of(2018, 6, 5, 9, 0, 0),
+                LocalDateTime.of(2018, 6, 5, 13, 0, 0),
                 LocalDateTime.of(2018, 6, 5, 11, 12, 32),
-                LocalDateTime.of(2018, 6, 5, 9, 0, 0)
+                CardType.WORKING_DAYS_UNLIMITED_LIFTS,
+                -1,
+                true
             },
-            {}
+            {
+                LocalDateTime.of(2018, 6, 5, 9, 0, 0),
+                LocalDateTime.of(2018, 6, 5, 13, 0, 0),
+                LocalDateTime.of(2018, 6, 5, 11, 12, 32),
+                CardType.WEEKEND_UNLIMITED_LIFTS,
+                -1,
+                true
+            },
+            {
+                LocalDateTime.of(2018, 6, 5, 9, 0, 0),
+                LocalDateTime.of(2018, 6, 5, 13, 0, 0),
+                LocalDateTime.of(2018, 6, 5, 14, 12, 32),
+                CardType.WORKING_DAYS_UNLIMITED_LIFTS,
+                -1,
+                false
+            }
         });
     }
 
     @Test
-    public void passReturnsTrueForValidCard() {
+    public void passReturnsValidResultsForUnlimitedLiftsCards() {
         // arrange
-        LocalDateTime testCurrentDate = LocalDateTime.of(2018, 6, 5, 11, 12, 32);
-        LocalDateTime testStartDate = LocalDateTime.of(2018, 6, 5, 9, 0, 0);
-        LocalDateTime testEndDate = LocalDateTime.of(2018, 6, 5, 13, 0, 0);
-        CardOptions testOptions = CardOptions.newBuilder()
+        CardOptions options = CardOptions.newBuilder()
             .setId(testId)
-            .setStartDate(testStartDate)
-            .setEndDate(testEndDate)
-            .setType(CardType.WORKING_DAYS_UNLIMITED_LIFTS)
+            .setStartDate(startDate)
+            .setEndDate(endDate)
+            .setType(cardType)
+            .setLiftsNumber(liftsLeft)
             .build();
-
-        SkiPassCard card = new UnlimitedLiftsCard(testOptions, () -> testCurrentDate);
+        SkiPassCard card = new UnlimitedLiftsCard(options, () -> currentDate);
 
         // act
-        boolean passResult = turnstile.pass(card);
+        boolean actual = turnstile.pass(card);
 
         // assert
-        Assert.assertTrue(passResult);
-    }
-
-    @Test
-    public void passReturnsFalseForInvalidCard() {
-
-    }
-
-
-    private class CardParameters {
-
+        Assert.assertEquals(expectedResult, actual);
     }
 }
