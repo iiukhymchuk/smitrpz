@@ -1,4 +1,11 @@
 package homework3;
 
-public class System {
+import homework3.interfaces.SkiPassCardSystem;
+
+import java.util.HashMap;
+
+public class System implements SkiPassCardSystem {
+    private HashMap cards;
+
+
 }

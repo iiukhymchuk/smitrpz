@@ -1,12 +1,12 @@
-package homework3.entities.cards;
+package homework3.cards;
 
-import homework3.entities.SkiPassCardOptions;
+import homework3.entities.CardOptions;
 
 import java.util.Date;
 
-public class UnlimitedLiftsSkiPassCard extends BaseSkiPassCard {
+public class UnlimitedLiftsCard extends BaseCard {
 
-    public UnlimitedLiftsSkiPassCard(SkiPassCardOptions options) {
+    public UnlimitedLiftsCard(CardOptions options) {
         super(options);
     }
 

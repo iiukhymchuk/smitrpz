@@ -1,17 +1,17 @@
-package homework3.entities.cards;
+package homework3.cards;
 
 import homework3.entities.LiftsNumber;
-import homework3.entities.SkiPassCardOptions;
+import homework3.entities.CardOptions;
 
 import java.util.Date;
 
-public class LimitedLiftsSkiPassCard extends BaseSkiPassCard {
+public class LimitedLiftsCard extends BaseCard {
 
     protected final LiftsNumber liftsNumber;
 
-    public LimitedLiftsSkiPassCard(SkiPassCardOptions options) {
+    public LimitedLiftsCard(CardOptions options) {
         super(options);
-        liftsNumber = new LiftsNumber(options.getNumberOfLifts());
+        liftsNumber = new LiftsNumber(options.getLiftsNumber());
     }
 
     @Override

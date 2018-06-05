@@ -1,0 +1,9 @@
+package homework3.enums;
+
+public enum CardType {
+    SEASON,
+    WORKING_DAYS_LIMITED_LIFTS,
+    WORKING_DAYS_UNLIMITED_LIFTS,
+    WEEKEND_LIMITED_LIFTS,
+    WEEKEND_UNLIMITED_LIFTS
+}
